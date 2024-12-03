@@ -15,6 +15,25 @@ public class BoardRepositoryTest {
     @Autowired
     private BoardRepository boardRepository;
 
+    @Test
+    public void findByIdJoinUserAndReply_test(){
+        //given
+        Integer id = 1;
+
+        //when
+        Optional<Board> boardOP = boardRepository.findByIdJoinUserAndReply(id);
+
+        //eye
+
+    }
+
+
+    @Test
+    public void testFindByIdJoinUser(){
+        int id = 1;
+        boardRepository.findByIdJoinUser(id);
+    }
+
 
     @Test
     public void findById_test(){
@@ -23,11 +42,9 @@ public class BoardRepositoryTest {
 
         //when
         Optional<Board> boardOP = boardRepository.findById(id);
-        Board board = boardOP.get();
+
         //eye
-        System.out.println("LAZY loading 직전");
-        String username = board.getUser().getUsername();
-        System.out.println("LAZY loading 직후");
+
     }
 
 
